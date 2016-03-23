@@ -34,6 +34,9 @@ h6 {
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
+
+    -webkit-column-span: all; /* Chrome, Safari, Opera */
+    column-span: all;
 }
 
 /* Added in { Personal } */
@@ -80,7 +83,7 @@ a {
 
 .navbar-custom {
     margin-bottom: 0;
-    border-bottom: 1px solid rgba($light, 0.3);
+    border-bottom: 1px solid rgba($primary, 0.5);
     text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: $navbar-sm-background-color;
@@ -118,7 +121,7 @@ a {
                 -moz-transition: background .3s ease-in-out;
                 transition: background .3s ease-in-out;
                 &:hover {
-                    /* color: rgba($light, 0.8); */
+                    // color: rgba($light, 0.8);
                     outline: none;
                     background-color: rgba($light, 0.3);
                 }
@@ -150,7 +153,7 @@ a {
         &.top-nav-collapse {
             padding: 0;
             background: $navbar-lg-collapse-background-color;
-            border-bottom: 1px solid rgba($light, 0.3);
+            border-bottom: 1px solid rgba($primary, 0.5);
         }
     }
 }
@@ -196,6 +199,21 @@ a {
         }
     }
 }
+
+.thesis-section {
+    width: 100%;
+    padding: 50px 0;
+    color: #fff;
+    background-color: yellow;
+    text-shadow: 1px 1px #000;
+    background: url(../img/tin.png) no-repeat center center scroll;
+    background-color: $header-background-color;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
 
 @-webkit-keyframes pulse {
     from {
@@ -301,6 +319,47 @@ a {
     background-color: $primary;
 }
 
+
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #fff;
+    border-radius: 35px;
+    font-size: 40px;
+    color: #fff;
+    background: 0 0;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.btn-circle:hover,
+.btn-circle:focus {
+    outline: 0;
+    color: #fff;
+    background: rgba(255,255,255,.1);
+}
+
+.btn-circle i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+}
+
+.btn-circle:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
 /* Added in { Personal } */
 ul.social-buttons li a {
     display: block;
@@ -334,15 +393,19 @@ footer {
 }
 
 ::-moz-selection {
+    color: $primary;
     text-shadow: none;
-    background: #fcfcfc;
+    // background: #fcfcfc;
     background: rgba($light, 0.2);
+    // background: black;
 }
 
 ::selection {
+    color: $primary;
     text-shadow: none;
-    background: #fcfcfc;
+    // background: #fcfcfc;
     background: rgba($light, 0.2);
+    // background: white;
 }
 
 img::selection {
@@ -406,34 +469,34 @@ body {
  }
  /* END Animation for hand-swipe */
 
- /* Style for swipe instruction section */
- #swipe-instruction {
-     display: none;
-     position: absolute;
-     background-color: rgba(0, 0, 0, 0.5);
-     width: 100%;
-     min-height: 100%;
-     top: 0;
-     right: 0;
-     left: 0;
-     z-index: 1;
-      > div {
-         background-color: rgba(20, 20, 20, 0.6);
-         padding: 10px;
-         @media(min-width:768px) {
-           padding: 20px 0;
-         }
-         #hand-swipe {
-            @media(min-width:992px) {
-              font-size: 100px;
-            }
-            font-size: 80px;
-             display: block;
-             position: relative;
-             animation: swipe ease-in-out 1s alternate infinite;
-         }
-     }
- }
+ // /* Style for swipe instruction section */
+ // #swipe-instruction {
+ //     display: none;
+ //     position: absolute;
+ //     background-color: rgba(0, 0, 0, 0.5);
+ //     width: 100%;
+ //     min-height: 100%;
+ //     top: 0;
+ //     right: 0;
+ //     left: 0;
+ //     z-index: 1;
+ //      > div {
+ //         background-color: rgba(20, 20, 20, 0.6);
+ //         padding: 10px;
+ //         @media(min-width:768px) {
+ //           padding: 20px 0;
+ //         }
+ //         #hand-swipe {
+ //            @media(min-width:992px) {
+ //              font-size: 100px;
+ //            }
+ //            font-size: 80px;
+ //             display: block;
+ //             position: relative;
+ //             animation: swipe ease-in-out 1s alternate infinite;
+ //         }
+ //     }
+ // }
 
 .ok-btn {
   background-color: $dark;
@@ -444,4 +507,40 @@ body {
 
 .fourofour {
   border: 1px solid $dark !important;
+}
+
+/* Map */
+
+.map {
+    width: 100%;
+    height: 800px;
+}
+
+@media(max-width:768px) {
+    .map {
+        height: 75%;
+    }
+}
+
+/*disable custom maps scrolling behaviour*/
+.scrolloff {
+    pointer-events: none;
+}
+
+.columns {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    background-color: rgba(0,0,0,0.3);
+    padding: 20px;
+
+
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+
+
+    -webkit-column-rule: 1px solid $primary; /* Chrome, Safari, Opera */
+    -moz-column-rule: 1px solid $primary; /* Firefox */
+    column-rule: 1px solid $primary;
 }

@@ -269,4 +269,72 @@ function addTohistory() {
 
 {% endif %}
 
+<script>
+  // Map functions
+  $(document).ready(function() {
+    $('#map_iframe').addClass('scrolloff');
+    $('#map').on('click', function () {
+      $('#map_iframe').removeClass('scrolloff');
+    });
+
+    $('#map_iframe').mouseleave(function  () {
+      $('#map_iframe').addClass('scrolloff');
+    });
+  });
+</script>
+
+<!-- Get Repos From Github 
+* Taken from https://github.com/prashantsolanki3/prashantsolanki3.github.io/
+* Code licensed under the MIT license, Copyright by Prashant Solanki
+-->
+
+<script type="text/javascript">
+$( document ).ready(function() {
+  $.ajax({
+  url: "https://api.github.com/users/{{ site.github-info.handle }}/repos?sort=created",
+  cache: true,
+  crossDomain: true
+})
+  .done(function( data ) {
+    createList(data);
+  });
+ String.prototype.trunc =
+     function(n,useWordBoundary){
+         var toLong = this.length>n,
+             s_ = toLong ? this.substr(0,n-1) : this;
+         s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
+         return  toLong ? s_ + '&hellip;' : s_;
+      };
+function createList (data) {
+   // clear the existing list
+  $("#repo-list").html("");
+  $.each(data, function(index,obj) {
+if(index>{{ site.github-info.repo-display-limit }}-1){
+  return false;
+}
+    var formattedDate = new Date(obj.created_at);
+var d = formattedDate.getDate();
+var m =  formattedDate.getMonth();
+  // JavaScript months are 0-11
+var y = formattedDate.getFullYear();
+ var description =   "No description";
+ if (obj.description) {
+  description=obj.description.trunc({{ site.github-info.repo-desc-char-limit }},true);
+ }
+    $('#repo-list').append('<div class="col-lg-6" style="paddinG:5px;"><h4><strong> <a href="'+obj.svn_url+'" target="_blank">'+obj.name+' </a> </strong><br/><br/><strong> '+getFormattedDate(d + "/" + m + "/" + y)+' </strong><small>. '+obj.language+' </small><small><ul style="padding-top: 10px" class="list-inline"><li><a><i class="fa fa-star fa-fw"></i> '+obj.stargazers_count+'</a></li><li><a><i class="fa fa-eye fa-fw"></i> '+obj.watchers_count+'</a></li></ul></small></h4><p>'+ description +' </p></div>');
+    
+  }); 
+  function getFormattedDate(input){
+    var pattern=/(.*?)\/(.*?)\/(.*?)$/;
+    var result = input.replace(pattern,function(match,p1,p2,p3){
+        var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return (p1<10?"0"+p1:p1)+" "+months[(p2-1)]+" "+p3;
+    });
+    return(result);
+}
+}
+$("table").addClass("table");
+ });
+</script>
+
 <!-- Javascript End -->

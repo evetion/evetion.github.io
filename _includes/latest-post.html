@@ -15,12 +15,14 @@
             </a>
           .</small>
           <strong> <a href="{{site.baseurl}}{{ post.url }}">{{post.title}} </a> </strong>
-          <small> <a href="{{site.baseurl}}{{post.url}}#disqus_thread">Comments</a></small>
         </h4>
 
         {{ post.content | truncatewords: site.post-preview-words | strip_html | markdownify }}
+        
+        {% include map.html %}
+        <br></br>
 
-        <h4><a href="{{site.baseurl}}/blog/">View more posts</a></h4>
+        <h4><a href="{{site.baseurl}}/blog/">View more projects</a></h4>
 
       </div>
     </div>
