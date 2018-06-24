@@ -14,8 +14,8 @@ class AnimatedTriangulatedBackground {
         this.FPS = 60,
         this.start = null,
         this.speed = 3 / this.FPS,
-        this.total = Math.max(this.width, this.height) / 500. // 0.2% of longest dimension
         this.npoints = this.width * this.height / 10000
+        this.total = Math.max(3, this.npoints / 40.)
 
         // Generate data and draw first instance
         this.generate();
@@ -39,8 +39,8 @@ class AnimatedTriangulatedBackground {
         this.height = window.innerHeight;
         this.canvas.width = this.width;
         this.canvas.height = this.height;
-        this.total = Math.max(this.width, this.height) / 500. // 0.2% of longest dimension
         this.npoints = this.width * this.height / 10000
+        this.total = Math.max(3, this.npoints / 40.)
 
         this.generate();
     }
