@@ -1,0 +1,115 @@
+/*!
+ */
+
+:root {
+    --highlight_color: #00cdff;
+    --alternate_color: #222;
+    --roundness: 5%;
+}
+
+/* Canvas background with moving voronoi */
+canvas {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -99;
+}
+
+.content-section img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* for legibility on the moving whitegrey background */
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    background-color: rgba(255,255,255,0.75);
+}
+
+.img-me {
+     z-index:100;
+     left:0;
+     width:100px;
+     height:100px;
+     margin-left:0;
+     border-radius:var(--roundness);
+}
+
+@media (min-width: 768px) {
+    p {
+        font-size: 19px;
+        line-height: 1.6
+    }
+    .img-me {
+        width:150px;
+        height:150px;
+    }
+}
+
+@media (min-width: 992px) {
+    p {
+        font-size: 20px;
+        line-height: 1.6
+    }
+    .img-me {
+        width:200px;
+        height:200px
+    }
+}
+
+
+a {
+    color: var(--highlight_color);
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out
+}
+
+a:hover, a:focus {
+    background-color: var(--highlight_color);
+    text-decoration: none;
+    color: var(--alternate_color);
+}
+
+.content-section ul, .content-section ol {
+    text-align: center;
+    margin: 25px 0 25px;
+    font-size: 18px;
+    line-height: 1.5;
+    list-style-position: inside
+}
+
+ul.social-buttons li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--roundness);
+    font-size: 20px;
+    line-height: 40px;
+    color: var(--highlight_color);
+    background-color: var(--alternate_color);
+}
+
+ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active {
+    color: var(--alternate_color);
+    background-color: var(--highlight_color);
+}
+
+::-moz-selection {
+    color: var(--highlight_color);
+    text-shadow: none;
+    background: rgba(255, 255, 255, 0.2)
+}
+
+::selection {
+    color: var(--highlight_color);
+    text-shadow: none;
+    background: rgba(255, 255, 255, 0.2)
+}
