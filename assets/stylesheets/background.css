@@ -1,0 +1,88 @@
+/* Canvas background with moving voronoi */
+canvas {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -99;
+}
+
+/* for legibility on the moving background */
+/* p {
+    background-color: rgba(0, 0, 0, 0.75);
+
+} */
+:root>* {
+    --md-hue: 200;
+    --md-primary-bg-color: initial;
+    /* --md-primary-fg-color: none; */
+    /* --md-footer-bg-color: none; */
+    /* --md-footer-fg-color--light: darkgrey; */
+    /* --md-footer-fg-color--lighter: grey; */
+}
+
+.md-tabs {
+    background-color: transparent;
+}
+
+.md-header {
+    background-color: transparent;
+}
+
+.md-footer {
+    background-color: transparent;
+}
+
+.md-footer-meta {
+    background-color: transparent;
+}
+
+/* Hide title on homepage */
+h1 {
+    display: none;
+}
+
+@media screen and (min-width:60em) {
+    .md-sidebar--secondary {
+        display: none
+    }
+}
+
+@media screen and (min-width:76.25em) {
+    .md-sidebar--primary {
+        display: none
+    }
+}
+
+[data-md-color-scheme="default"] {
+    /* --md-footer-bg-color: none; */
+    /* --md-footer-bg-color--dark: none; */
+    --md-footer-fg-color--light: black;
+    --md-footer-fg-color--lighter: grey;
+    --md-footer-fg-color--dark: black;
+    /* --md-footer-bg-color--dark: initial; */
+}
+
+.img-me {
+    /* z-index: 100; */
+    /* left: 0; */
+    border-radius: 25%;
+    width: 20%;
+    height: 20%;
+    /* margin-left: 0; */
+}
+
+@media (min-width: 768px) {
+    .img-me {
+        /* width: 50px; */
+        /* height: 50px; */
+    }
+}
+
+@media (min-width: 992px) {
+    .img-me {
+        /* width: 75pt; */
+        /* height: 75pt; */
+    }
+}
